@@ -130,7 +130,7 @@ export default function Home() {
             </div>
           </article>
 
-          <article className={styles.galleryCard}>
+          <article className={`${styles.galleryCard} ${styles.galleryCardStudio}`}>
             <img src="/images/minimal-studio.jpg" alt="Minimal Performance Studio reference" />
             <div className={styles.galleryCardCopy}>
               <h3>Minimal Performance Studio</h3>
