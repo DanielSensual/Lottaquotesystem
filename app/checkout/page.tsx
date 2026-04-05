@@ -41,14 +41,14 @@ function CheckoutContent() {
         document.head.appendChild(script);
     }, []);
 
-    const processPayment = useCallback(async (sourceId: string) => {
+    const processPayment = useCallback(async (sourceId: string, verificationToken?: string) => {
         setProcessing(true);
         setError(null);
         try {
             const res = await fetch('/api/payment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ sourceId, amount, description: desc }),
+                body: JSON.stringify({ sourceId, amount, description: desc, verificationToken }),
             });
             const data = await res.json();
             if (!res.ok || !data.success) {
@@ -157,8 +157,28 @@ function CheckoutContent() {
         setError(null);
         try {
             const result = await cardInstanceRef.current.tokenize();
-            if (result.status === 'OK') { await processPayment(result.token); }
-            else { setError(result.errors?.[0]?.message || 'Card tokenization failed.'); setProcessing(false); }
+            if (result.status !== 'OK') {
+                setError(result.errors?.[0]?.message || 'Card tokenization failed.');
+                setProcessing(false);
+                return;
+            }
+
+            // SCA / 3DS verification required for production
+            let verificationToken: string | undefined;
+            try {
+                const payments = window.Square.payments(APP_ID, LOCATION_ID);
+                const verifyResult = await payments.verifyBuyer(result.token, {
+                    amount: amount.toFixed(2),
+                    billingContact: {},
+                    currencyCode: 'USD',
+                    intent: 'CHARGE',
+                });
+                verificationToken = verifyResult?.token;
+            } catch {
+                // Verification not required for all regions — continue without
+            }
+
+            await processPayment(result.token, verificationToken);
         } catch (e: any) { setError(e.message); setProcessing(false); }
     };
 

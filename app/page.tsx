@@ -183,10 +183,6 @@ export default function Home() {
               4 hours. Includes setup, professional high-quality video capture, one location and multiple scenes for social ads or a brand video direction.
             </p>
           </div>
-
-          <div className={styles.teaser}>
-            A clean upsell if he wants motion content later. It is intentionally shown as an add-on, not part of the base photo quote.
-          </div>
         </aside>
       </section>
     </main>
