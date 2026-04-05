@@ -1,46 +1,53 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
 
-@theme {
-  --color-ink-950: #040404;
-  --color-ink-900: #0b0b0b;
-  --color-ink-800: #111111;
-  --color-ink-700: #191919;
-  --color-ink-200: #d9d6d2;
-  --color-ink-100: #f4f1ec;
-  --color-stone-500: #8f877d;
-  --color-stone-400: #b8b1a8;
-  --color-line: rgba(255, 255, 255, 0.1);
-  --font-sans: var(--font-manrope), sans-serif;
-  --font-display: var(--font-cormorant), serif;
+:root {
+  --bg: #050505;
+  --bg-soft: #101010;
+  --panel: #111111;
+  --panel-soft: #171717;
+  --text: #f5f5f7;
+  --muted: #a1a1a6;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --accent: #ffffff;
+  --accent-soft: #d6d6db;
+  --shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
+  --radius-xl: 34px;
+  --radius-lg: 26px;
+  --radius-md: 18px;
+  --max: 1240px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  background: var(--color-ink-950);
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
+  font-family: 'Inter', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--text);
   background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 30%),
-    linear-gradient(180deg, #060606 0%, #040404 100%);
-  color: var(--color-ink-100);
+    radial-gradient(circle at top center, rgba(72, 72, 72, 0.28), transparent 28%),
+    linear-gradient(180deg, #0a0a0a 0%, #050505 42%, #000000 100%);
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
 }
 
-a,
-button,
-input,
-textarea,
-select {
-  transition:
-    color 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease,
-    opacity 180ms ease;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-::selection {
-  background: rgba(255, 255, 255, 0.18);
-  color: #ffffff;
+a {
+  color: inherit;
 }
 
+h1, h2, h3, h4, p {
+  margin: 0;
+}
