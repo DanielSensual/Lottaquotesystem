@@ -174,42 +174,7 @@ export default function Home() {
       </section>
 
       {/* ═══ VIDEO ADD-ON ═══ */}
-      <section className={styles.videoCard}>
-        <div className={styles.videoCopy}>
-          <div className={styles.videoKicker}>Optional Add-On</div>
-          <h2 className={styles.videoTitle}>Add one professional video shoot.</h2>
-          <p>
-            This is a teaser option for social media ads and a future brand video. It keeps the same premium visual language, but adds motion content if he wants to expand beyond stills.
-          </p>
-
-          <div className={styles.videoPoints}>
-            <div className={styles.videoPoint}>
-              <strong>4 hours</strong>
-              <span>Includes setup time and a longer production flow.</span>
-            </div>
-            <div className={styles.videoPoint}>
-              <strong>2 people</strong>
-              <span>Professional video coverage with light setup on site.</span>
-            </div>
-            <div className={styles.videoPoint}>
-              <strong>1 location</strong>
-              <span>Focused production at one strong environment.</span>
-            </div>
-            <div className={styles.videoPoint}>
-              <strong>6-8 scenes</strong>
-              <span>Enough variety for ads, cutdowns and brand storytelling.</span>
-            </div>
-            <div className={styles.videoPoint}>
-              <strong>Up to 6 models</strong>
-              <span>Built for fuller brand energy and casting flexibility.</span>
-            </div>
-            <div className={styles.videoPoint}>
-              <strong>No edits included</strong>
-              <span>High-quality raw footage delivery only.</span>
-            </div>
-          </div>
-        </div>
-
+      <section className={`${styles.videoCard} ${styles.videoCardCentered}`}>
         <aside className={styles.videoMeta}>
           <div>
             <div className={styles.priceLabel}>Video Shoot</div>

@@ -403,6 +403,13 @@
     linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(5, 5, 5, 0.98));
 }
 
+.videoCardCentered {
+  grid-template-columns: 1fr;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .videoCopy,
 .videoMeta {
   padding: 30px;
